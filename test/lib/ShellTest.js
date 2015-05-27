@@ -16,7 +16,7 @@ suite('Shell', function () {
 	test('should execute a shell command', function () {
 		var cwd = __dirname;
 
-		return Shell.exec('ls', ['-w'], { cwd: __dirname })
+		return Shell.exec('ls', ['-U'], { cwd: __dirname })
 			.then(function (result) {
 				assert.deepEqual(result, {
 					code: 0,
