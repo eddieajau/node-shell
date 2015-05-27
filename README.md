@@ -15,6 +15,10 @@ $ npm install @eddieajau/shell
 ```js
 var Shell = require('@eddieajau/shell');
 
+// Optionally set a logger.
+Shell.setLogger(console.log);
+
+// Execute the shell command.
 Shell.exec('ls', [], { cwd: __dirname })
 	.then(function (result) {
 		console.log('The command returned %d', result.code);

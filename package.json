@@ -20,7 +20,8 @@
     "test": "npm run test:unit",
     "test:unit": "node_modules/.bin/mocha test --no-colors",
     "test:xunit": "npm run test:unit -- --reporter xunit",
-    "patch": "npm version patch && npm publish && git push --follow-tags"
+    "patch": "npm version patch && npm publish && git push --follow-tags",
+    "minor": "npm version minor && npm publish && git push --follow-tags"
   },
   "repository": {
     "type": "git",

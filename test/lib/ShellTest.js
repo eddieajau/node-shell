@@ -16,7 +16,7 @@ suite('Shell', function () {
 	test('should execute a shell command', function () {
 		var cwd = __dirname;
 
-		return Shell.exec('ls', [], { cwd: __dirname })
+		return Shell.exec('ls', ['-w'], { cwd: __dirname })
 			.then(function (result) {
 				assert.deepEqual(result, {
 					code: 0,
@@ -25,6 +25,23 @@ suite('Shell', function () {
 					],
 					stderr: []
 				})
+			});
+	});
+
+	test('should invoke a logger', function () {
+		var cwd = __dirname;
+		var logs = [];
+		var logger = function (msg) {
+			logs.push(msg);
+		};
+
+		Shell.setLogger(logger);
+
+		return Shell.exec('ls', ['-w'], { cwd: __dirname })
+			.then(function (result) {
+				assert.deepEqual(logs, [
+					'ls -w'
+				])
 			});
 	});
 });
