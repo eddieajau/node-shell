@@ -40,7 +40,7 @@ suite('Shell', function () {
 		return Shell.exec('ls', ['-U'], { cwd: __dirname })
 			.then(function (result) {
 				assert.deepEqual(logs, [
-					'ls -u'
+					'ls -U'
 				])
 			});
 	});
