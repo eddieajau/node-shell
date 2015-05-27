@@ -37,7 +37,7 @@ suite('Shell', function () {
 
 		Shell.setLogger(logger);
 
-		return Shell.exec('ls', ['-u'], { cwd: __dirname })
+		return Shell.exec('ls', ['-U'], { cwd: __dirname })
 			.then(function (result) {
 				assert.deepEqual(logs, [
 					'ls -u'
